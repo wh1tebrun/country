@@ -1,19 +1,30 @@
 
 counter = 0
 
-function getID(oObject) {
-    var id = oObject.id;
-
-    return id
-}
-
-function randomizer(p1, p2) {
+function randomizer(p1, p2, p3, p4) {
     if (Math.floor(getRandomArbitrary(0, 2)) % 2 == 0) {
-        return p1
+
+        if (Math.floor(getRandomArbitrary(0, 2)) % 2 == 0) {
+            return p1
+
+        }
+
+        else {
+            return p3
+        }
+
     }
 
     else {
-        return p2
+        if (Math.floor(getRandomArbitrary(0, 2)) % 2 == 0) {
+            return p2
+
+        }
+
+
+        else {
+            return p4
+        }
     }
 }
 
@@ -51,7 +62,9 @@ function replaceAndRemoveImage(delIndex) {
 window.onload = () => {
     id0 = replaceAndRemoveImage(0);
     id1 = replaceAndRemoveImage(1);
-    chosenId = randomizer(id0, id1)
+    id2 = replaceAndRemoveImage(2);
+    id3 = replaceAndRemoveImage(3);
+    chosenId = randomizer(id0, id1, id2, id3)
     myCountryName.innerText = chosenId
 
 };
@@ -67,7 +80,8 @@ function removeImageListener(event) {
     const img = event.target;
     const imgId = img.getAttribute("id");
     const i = img._index;
-    const delIndex = 1 - i;
+    const delIndexesSet = new Set([0, 1, 2, 3]).symmetricDifference(new Set([i]))
+    const delIndexes = Array.from(delIndexesSet)
 
 
     console.log(imgId);
@@ -85,9 +99,11 @@ function removeImageListener(event) {
     }
 
 
-    if (counter >= parseInt(output.innerHTML, 10) - 2) {
+    if (counter >= parseInt(output.innerHTML, 10) - 1) {
         img.removeEventListener("click", removeImageListener);
-        imgs[delIndex].style.visibility = "hidden";
+        imgs[delIndexes[0]].style.visibility = "hidden";
+        imgs[delIndexes[1]].style.visibility = "hidden";
+        imgs[delIndexes[2]].style.visibility = "hidden";
         jsConfetti.addConfetti({
             emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
         }).then(() => jsConfetti.addConfetti());
@@ -96,13 +112,15 @@ function removeImageListener(event) {
     }
 
     else {
-        id_i = replaceAndRemoveImage(i)
-        id_delIndex = replaceAndRemoveImage(delIndex);
-        chosenId = randomizer(id_i, id_delIndex)
+        id_i = replaceAndRemoveImage(i);
+        id_delIndex1 = replaceAndRemoveImage(delIndexes[0]);
+        id_delIndex2 = replaceAndRemoveImage(delIndexes[1]);
+        id_delIndex3 = replaceAndRemoveImage(delIndexes[2]);
+
+        chosenId = randomizer(id_i, id_delIndex1, id_delIndex2, id_delIndex3)
         myCountryName.innerText = chosenId;
         console.log(myCountryName.innerText)
 
-        counter++;
         counter++;
     }
 
