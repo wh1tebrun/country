@@ -44,6 +44,7 @@ function getRandomArbitrary(min, max) {
 imgs = Array.from(document.getElementsByTagName("img"))
 imgsrcs = Array.from(document.getElementsByClassName("hidden-imgs"))
 var myCountryName = document.getElementById("country-name");
+var myOutOfScore = document.getElementsByClassName("out-of-score")
 
 // Function to replace the image source of the image at delIndex with a random image from imgsrcs
 // and then remove the used image source from imgsrcs
@@ -66,6 +67,7 @@ window.onload = () => {
     id3 = replaceAndRemoveImage(3);
     chosenId = randomizer(id0, id1, id2, id3)
     myCountryName.innerText = chosenId
+    myOutOfScore.innerText = output.innerHTML
 
 };
 
