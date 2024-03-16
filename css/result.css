@@ -14,15 +14,7 @@
     padding: 30px;
 }
 
-.menu {
-    top: 300px;
-    left: 75%;
-    width: 820px;
-    background-color: #f6f6f6;
-    border-radius: 15px;
-    padding: 30px;
-    position: absolute;
-}
+
 
 .menu--stats-mode {
     width: 330px !important;
@@ -181,4 +173,45 @@ button {
     overflow: visible;
     margin: 0;
     font: inherit;
+}
+
+
+@media (max-width:623px) {
+
+    .menu {
+        left: 10%;
+        top: 55%;
+        width: 820px;
+        background-color: #f6f6f6;
+        border-radius: 15px;
+        padding: 30px;
+        position: absolute;
+    }
+}
+
+
+@media (min-width:624px) and (max-width:1000px) {
+
+    .menu {
+        left: 30%;
+        top: 75%;
+        width: 820px;
+        background-color: #f6f6f6;
+        border-radius: 15px;
+        padding: 30px;
+        position: absolute;
+    }
+}
+
+@media (min-width:1001px) {
+    .menu {
+        left: 75%;
+        top: 40%;
+        width: 820px;
+        background-color: #f6f6f6;
+        border-radius: 15px;
+        padding: 30px;
+        position: absolute;
+    }
+
 }
