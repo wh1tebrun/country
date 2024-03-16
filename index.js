@@ -2,6 +2,18 @@
 counter = 0
 mistake = 0
 
+function updateHighscore(newScore) {
+    // get current highscore
+    const oldHighscore = parseFloat(localStorage.getItem('score'))
+
+    if (oldHighscore == null // if it doesn't exist yet
+        || oldHighscore < newScore) { // or if it's smaller than the new score (I assume bigger means better here)
+        // current highscore needs to be updated
+        localStorage.setItem('score', newScore)
+        // html needs to be updated
+        document.getElementById("best_score").innerHTML = localStorage.getItem('score')
+    }
+}
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
 var totalSeconds = 0;
