@@ -77,6 +77,7 @@ var myCountryName = document.getElementById("country-name");
 var myOutOfScore = document.getElementsByClassName("out-of-score")
 var flagsDone = document.getElementById("flags-done")
 correctFlags = Array.from(document.getElementsByClassName("small-flag"))
+playAgainButtons = Array.from(document.getElementsByClassName("stats-btn__again2"))
 
 // Function to replace the image source of the image at delIndex with a random image from imgsrcs
 // and then remove the used image source from imgsrcs
@@ -162,6 +163,7 @@ function removeImageListener(event) {
             emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
         }).then(() => jsConfetti.addConfetti());
 
+        playAgainButtons[0].style.visibility = 'visible';
 
     }
 

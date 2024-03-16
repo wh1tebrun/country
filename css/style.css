@@ -29,6 +29,7 @@ html {
 
 }
 
+
 canvas#confetti {
     position: fixed;
     width: 100%;
@@ -170,6 +171,30 @@ img {
 @media (max-width:623px) {
 
 
+    .stats-btn__again2 {
+        visibility: hidden;
+        position: absolute;
+        left: 40%;
+        top: 60%;
+        margin-bottom: 15px;
+        color: var(--text-white, #FFF);
+        text-align: center;
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+        height: 36px;
+        border-radius: 6px;
+        background: #3966D1;
+        border: none;
+    }
+
+
     .slidecontainer {
         margin-top: 1%;
 
@@ -245,6 +270,30 @@ img {
 }
 
 @media (min-width:624px) and (max-width:999px) {
+    .stats-btn__again2 {
+        visibility: none;
+        position: absolute;
+        left: 45%;
+        top: 80%;
+        margin-bottom: 15px;
+        color: var(--text-white, #FFF);
+        text-align: center;
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        height: 36px;
+        border-radius: 6px;
+        background: #3966D1;
+        border: none;
+    }
+
+
     .slidecontainer {
         margin-top: 1%;
 
@@ -319,6 +368,31 @@ img {
 }
 
 @media (min-width: 1000px) {
+
+    .stats-btn__again2 {
+        visibility: hidden;
+        position: absolute;
+        top: 63%;
+        left: 45%;
+        margin-bottom: 15px;
+        color: var(--text-white, #FFF);
+        text-align: center;
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        height: 36px;
+        border-radius: 6px;
+        background: #3966D1;
+        border: none;
+    }
+
+
     .slidecontainer {
         margin-top: 1%;
 
