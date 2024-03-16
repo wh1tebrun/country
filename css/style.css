@@ -23,6 +23,12 @@ html {
     margin-top: 1%;
 }
 
+.small-image {
+    width: 20px;
+    height: 20px;
+
+}
+
 canvas#confetti {
     position: fixed;
     width: 100%;

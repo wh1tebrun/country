@@ -1,6 +1,36 @@
 
 counter = 0
+mistake = 0
 
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+
+    if (mistake !== 0) {
+        return
+    }
+    ++totalSeconds;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+        return "0" + valString;
+    } else {
+        return valString;
+    }
+}
+function openResult() {
+    document.getElementById("menu").style.display = "block";
+}
+function closeResult() {
+    document.getElementById("menu").style.display = "none";
+}
 function randomizer(p1, p2, p3, p4) {
     if (Math.floor(getRandomArbitrary(0, 2)) % 2 == 0) {
 
@@ -45,6 +75,8 @@ imgs = Array.from(document.getElementsByTagName("img"))
 imgsrcs = Array.from(document.getElementsByClassName("hidden-imgs"))
 var myCountryName = document.getElementById("country-name");
 var myOutOfScore = document.getElementsByClassName("out-of-score")
+var flagsDone = document.getElementById("flags-done")
+correctFlags = Array.from(document.getElementsByClassName("small-flag"))
 
 // Function to replace the image source of the image at delIndex with a random image from imgsrcs
 // and then remove the used image source from imgsrcs
@@ -54,19 +86,21 @@ function replaceAndRemoveImage(delIndex) {
     imgs[delIndex].id = imgsrcs[rndNum].id;
     imgsrcs.splice(rndNum, 1);
 
-    return imgs[delIndex].id
+    return imgs[delIndex]
 
 
 }
 
 // When the window loads, replace the first two images
 window.onload = () => {
+    closeResult()
+    console.log(correctFlags[0].src)
     id0 = replaceAndRemoveImage(0);
     id1 = replaceAndRemoveImage(1);
     id2 = replaceAndRemoveImage(2);
     id3 = replaceAndRemoveImage(3);
     chosenId = randomizer(id0, id1, id2, id3)
-    myCountryName.innerText = chosenId
+    myCountryName.innerText = chosenId.id
     myOutOfScore.innerText = output.innerHTML
 
 };
@@ -79,25 +113,43 @@ const flagPressed = e => {
 // Event listener function for removing an image
 function removeImageListener(event) {
 
+    if (mistake !== 0) {
+        return
+    }
+
     const img = event.target;
     const imgId = img.getAttribute("id");
+    const imgSrc = img.getAttribute("src")
     const i = img._index;
     const delIndexesSet = new Set([0, 1, 2, 3]).symmetricDifference(new Set([i]))
     const delIndexes = Array.from(delIndexesSet)
 
 
-    console.log(imgId);
+
     if (myCountryName.innerText == imgId) {
         //pass
+
 
     }
 
     else {
-        window.close()
-        window.open("result.html")
+        correctFlags[0].src = chosenId.src
+        correctFlags[0].id = chosenId.id
+
+        console.log(correctFlags[0].src)
+
+        openResult()
+        mistake++
 
 
 
+
+    }
+
+    if (mistake !== 0) {
+        document.getElementById("myRange").disabled = true;
+        flagsDone.innerText = counter
+        return
     }
 
 
@@ -120,8 +172,8 @@ function removeImageListener(event) {
         id_delIndex3 = replaceAndRemoveImage(delIndexes[2]);
 
         chosenId = randomizer(id_i, id_delIndex1, id_delIndex2, id_delIndex3)
-        myCountryName.innerText = chosenId;
-        console.log(myCountryName.innerText)
+        myCountryName.innerText = chosenId.id;
+
 
         counter++;
     }
