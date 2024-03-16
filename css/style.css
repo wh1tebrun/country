@@ -100,15 +100,7 @@ h2 {
     color: #f56454
 }
 
-img {
 
-    vertical-align: middle;
-    width: 300px;
-    height: 200px;
-    object-fit: fill;
-    border: 1px solid black;
-
-}
 
 .slidecontainer {
 
@@ -168,7 +160,18 @@ img {
 }
 
 
-@media (max-width:623px) {
+@media (max-width:649px) {
+
+
+    img {
+
+        vertical-align: middle;
+        width: 180px;
+        height: 150px;
+        object-fit: fill;
+        border: 1px solid black;
+
+    }
 
 
     .stats-btn__again2 {
@@ -269,7 +272,19 @@ img {
 
 }
 
-@media (min-width:624px) and (max-width:999px) {
+@media (min-width:650px) and (max-width:999px) {
+
+
+    img {
+
+        vertical-align: middle;
+        width: 300px;
+        height: 200px;
+        object-fit: fill;
+        border: 1px solid black;
+
+    }
+
     .stats-btn__again2 {
         visibility: none;
         position: absolute;
@@ -368,6 +383,16 @@ img {
 }
 
 @media (min-width: 1000px) {
+
+    img {
+
+        vertical-align: middle;
+        width: 300px;
+        height: 200px;
+        object-fit: fill;
+        border: 1px solid black;
+
+    }
 
     .stats-btn__again2 {
         visibility: hidden;
