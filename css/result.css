@@ -1,6 +1,6 @@
 #menu.menu--stats-mode {
 
-
+    visibility: hidden;
     border-radius: 10px;
     padding: 20px;
 }
