@@ -17,7 +17,7 @@ function updateHighscore(newScore) {
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
 var totalSeconds = 0;
-setInterval(setTime, 1000);
+timePassed = setInterval(setTime, 1000);
 
 function setTime() {
 
@@ -167,6 +167,8 @@ function removeImageListener(event) {
 
 
     if (counter >= parseInt(output.innerHTML, 10) - 1) {
+
+        localStorage.setItem('mostRecentScore', timePassed);
         img.removeEventListener("click", removeImageListener);
         imgs[delIndexes[0]].style.visibility = "hidden";
         imgs[delIndexes[1]].style.visibility = "hidden";

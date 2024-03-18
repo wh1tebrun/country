@@ -1,6 +1,7 @@
 #menu.menu--stats-mode {
 
-    visibility: hidden;
+    
+
     border-radius: 10px;
     padding: 20px;
 }
@@ -179,6 +180,7 @@ button {
 @media (max-width:623px) {
 
     .menu {
+
         left: 10%;
         top: 55%;
         width: 820px;
