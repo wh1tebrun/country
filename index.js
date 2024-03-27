@@ -293,7 +293,7 @@ function replaceAndRemoveImage(delIndex) {
     const rndNum = Math.floor(getRandomArbitrary(0, imgsrcs.length));
     imgs[delIndex].src = imgsrcs[rndNum];
 
-    imgs[delIndex].id = imgs[delIndex].src.slice(38, -4).replaceAll("-", " ").toUpperCase();
+    imgs[delIndex].id = imgs[delIndex].src.slice(37, -4).replaceAll("-", " ").toUpperCase();
     imgsrcs.splice(rndNum, 1);
 
     return imgs[delIndex]
