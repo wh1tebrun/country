@@ -286,10 +286,10 @@ h2 {
     }
 
     .stats-btn__again2 {
-        visibility: none;
+        visibility: hidden;
         position: absolute;
+        top: 63%;
         left: 45%;
-        top: 80%;
         margin-bottom: 15px;
         color: var(--text-white, #FFF);
         text-align: center;
@@ -463,13 +463,11 @@ h2 {
 
 
     .img-container {
-
-
+        margin-top: 1%;
         display: flex;
-        justify-content: space-evenly;
-        height: 200px;
-        width: 340px;
-        margin: auto;
+        align-items: normal;
+        justify-content: center;
+
     }
 
     .footer__text {
