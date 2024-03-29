@@ -1,16 +1,19 @@
 /* GENERAL */
 
+@import"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap";
+
+
 :root {
-    background-color: #ecf5ff;
+    background-color: #ffffff;
     font-size: 62.5%;
 }
 
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #ffffff;
 }
 
 h1,
@@ -22,7 +25,7 @@ h4 {
 
 h1 {
     font-size: 5.4rem;
-    color: #56a5eb;
+    color: #e8402a;
     margin-bottom: 5rem;
 }
 
@@ -87,10 +90,10 @@ h3 {
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid #56a5eb;
+    border: 0.1rem solid #eb6009;
     margin-bottom: 1rem;
     text-decoration: none;
-    color: #56a5eb;
+    color: #d82c2c;
     background-color: white;
 }
 
@@ -125,5 +128,23 @@ input {
 }
 
 input::placeholder {
-    color: #aaa;
+    color: #ffffff;
+}
+
+
+.footer__text {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    font-size: 1rem;
+    color: black
+}
+
+.footer__text a {
+    font-size: 1.2rem;
+    color: black;
+    transition: all .2s ease-in-out;
+    text-decoration: none;
+
 }
