@@ -84,6 +84,205 @@ function getRandomArbitrary(min, max) {
 }
 
 imgs = Array.from(document.getElementsByTagName("img"))
+
+countryURLS = [
+    "https://country-fawn.vercel.app/assets/flags/algeria.jpg",
+    "https://country-fawn.vercel.app/assets/flags/hungary.jpg",
+    "https://country-fawn.vercel.app/assets/flags/liechtenstein.jpg",
+    "https://country-fawn.vercel.app/assets/flags/yemen.jpg",
+    "https://country-fawn.vercel.app/assets/flags/monaco.jpg",
+    "https://country-fawn.vercel.app/assets/flags/cyprus.jpg",
+    "https://country-fawn.vercel.app/assets/flags/togo.jpg",
+    "https://country-fawn.vercel.app/assets/flags/chile.jpg",
+    "https://country-fawn.vercel.app/assets/flags/bangladesh.jpg",
+    "https://country-fawn.vercel.app/assets/flags/burundi.jpg",
+    "https://country-fawn.vercel.app/assets/flags/cote-d'Ivoire.jpg",
+    "https://country-fawn.vercel.app/assets/flags/barbados.jpg",
+    "https://country-fawn.vercel.app/assets/flags/cuba.jpg",
+    "https://country-fawn.vercel.app/assets/flags/timor-leste.jpg",
+    "https://country-fawn.vercel.app/assets/flags/haiti.jpg",
+    "https://country-fawn.vercel.app/assets/flags/jordan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/qatar.jpg",
+    "https://country-fawn.vercel.app/assets/flags/samoa.jpg",
+    "https://country-fawn.vercel.app/assets/flags/lesotho.jpg",
+    "https://country-fawn.vercel.app/assets/flags/bahamas.jpg",
+    "https://country-fawn.vercel.app/assets/flags/paraguay.jpg",
+    "https://country-fawn.vercel.app/assets/flags/czechia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/Dominica.jpg",
+    "https://country-fawn.vercel.app/assets/flags/serbia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/uzbekistan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/crotia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/peru.jpg",
+    "https://country-fawn.vercel.app/assets/flags/philippines.jpg",
+    "https://country-fawn.vercel.app/assets/flags/somalia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/san-marino.jpg",
+    "https://country-fawn.vercel.app/assets/flags/thailand.jpg",
+    "https://country-fawn.vercel.app/assets/flags/switzerland.jpg",
+    "https://country-fawn.vercel.app/assets/flags/ecuador.jpg",
+    "https://country-fawn.vercel.app/assets/flags/guniea.jpg",
+    "https://country-fawn.vercel.app/assets/flags/slovakia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/united-states.jpg",
+    "https://country-fawn.vercel.app/assets/flags/burkina-faso.jpg",
+    "https://country-fawn.vercel.app/assets/flags/tajikistan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/japan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/brunei.jpg",
+    "https://country-fawn.vercel.app/assets/flags/nicaragua.jpg",
+    "https://country-fawn.vercel.app/assets/flags/papua-new-guinea.jpg",
+    "https://country-fawn.vercel.app/assets/flags/benin.jpg",
+    "https://country-fawn.vercel.app/assets/flags/panama.jpg",
+    "https://country-fawn.vercel.app/assets/flags/laos.jpg",
+    "https://country-fawn.vercel.app/assets/flags/tuvalu.jpg",
+    "https://country-fawn.vercel.app/assets/flags/estonia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/madagascar.jpg",
+    "https://country-fawn.vercel.app/assets/flags/spain.jpg",
+    "https://country-fawn.vercel.app/assets/flags/finland.jpg",
+    "https://country-fawn.vercel.app/assets/flags/guyana.jpg",
+    "https://country-fawn.vercel.app/assets/flags/libya.jpg",
+    "https://country-fawn.vercel.app/assets/flags/central-african-republic.jpg",
+    "https://country-fawn.vercel.app/assets/flags/austria.jpg",
+    "https://country-fawn.vercel.app/assets/flags/democratic-republic-of-the-kongo.jpg",
+    "https://country-fawn.vercel.app/assets/flags/sudan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/rwanda.jpg",
+    "https://country-fawn.vercel.app/assets/flags/kiribati.jpg",
+    "https://country-fawn.vercel.app/assets/flags/trinidad-and-tobago.jpg",
+    "https://country-fawn.vercel.app/assets/flags/senegal.jpg",
+    "https://country-fawn.vercel.app/assets/flags/bahrain.jpg",
+    "https://country-fawn.vercel.app/assets/flags/gabon.jpg",
+    "https://country-fawn.vercel.app/assets/flags/oman.jpg",
+    "https://country-fawn.vercel.app/assets/flags/guinea-bissau.jpg",
+    "https://country-fawn.vercel.app/assets/flags/honduras.jpg",
+    "https://country-fawn.vercel.app/assets/flags/bosnia-and-herzegovina.jpg",
+    "https://country-fawn.vercel.app/assets/flags/north-macedonia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/djibouti.jpg",
+    "https://country-fawn.vercel.app/assets/flags/slovenia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/malawi.jpg",
+    "https://country-fawn.vercel.app/assets/flags/sri-lanka.jpg",
+    "https://country-fawn.vercel.app/assets/flags/palestine.jpg",
+    "https://country-fawn.vercel.app/assets/flags/Equatorial-guinea.jpg",
+    "https://country-fawn.vercel.app/assets/flags/palau.jpg",
+    "https://country-fawn.vercel.app/assets/flags/namibia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/ireland.jpg",
+    "https://country-fawn.vercel.app/assets/flags/portugal.jpg",
+    "https://country-fawn.vercel.app/assets/flags/malaysia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/guatemala.jpg",
+    "https://country-fawn.vercel.app/assets/flags/china.jpg",
+    "https://country-fawn.vercel.app/assets/flags/belgium.jpg",
+    "https://country-fawn.vercel.app/assets/flags/bulgaria.jpg",
+    "https://country-fawn.vercel.app/assets/flags/cambodia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/vanuatu.jpg",
+    "https://country-fawn.vercel.app/assets/flags/botswana.jpg",
+    "https://country-fawn.vercel.app/assets/flags/costa-rica.jpg",
+    "https://country-fawn.vercel.app/assets/flags/zambia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/armenia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/malta.jpg",
+    "https://country-fawn.vercel.app/assets/flags/turkey.jpg",
+    "https://country-fawn.vercel.app/assets/flags/lebanon.jpg",
+    "https://country-fawn.vercel.app/assets/flags/india.jpg",
+    "https://country-fawn.vercel.app/assets/flags/georgia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/montenegro.jpg",
+    "https://country-fawn.vercel.app/assets/flags/latvia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/greece.jpg",
+    "https://country-fawn.vercel.app/assets/flags/kenya.jpg",
+    "https://country-fawn.vercel.app/assets/flags/azerbaijan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/cameroon.jpg",
+    "https://country-fawn.vercel.app/assets/flags/albania.jpg",
+    "https://country-fawn.vercel.app/assets/flags/egypt.jpg",
+    "https://country-fawn.vercel.app/assets/flags/mauritius.jpg",
+    "https://country-fawn.vercel.app/assets/flags/chad.jpg",
+    "https://country-fawn.vercel.app/assets/flags/belize.jpg",
+    "https://country-fawn.vercel.app/assets/flags/bolivia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/sweden.jpg",
+    "https://country-fawn.vercel.app/assets/flags/angola.jpg",
+    "https://country-fawn.vercel.app/assets/flags/syria.jpg",
+    "https://country-fawn.vercel.app/assets/flags/sierra-leone.jpg",
+    "https://country-fawn.vercel.app/assets/flags/comoros.jpg",
+    "https://country-fawn.vercel.app/assets/flags/denmark.jpg",
+    "https://country-fawn.vercel.app/assets/flags/australia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/iceland.jpg",
+    "https://country-fawn.vercel.app/assets/flags/kazakhstan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/fiji.jpg",
+    "https://country-fawn.vercel.app/assets/flags/colombia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/mali.jpg",
+    "https://country-fawn.vercel.app/assets/flags/eswatini.jpg",
+    "https://country-fawn.vercel.app/assets/flags/south-korea.jpg",
+    "https://country-fawn.vercel.app/assets/flags/south-sudan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/turkmenistan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/bhutan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/poland.jpg",
+    "https://country-fawn.vercel.app/assets/flags/nepal.jpg",
+    "https://country-fawn.vercel.app/assets/flags/nauru.jpg",
+    "https://country-fawn.vercel.app/assets/flags/sao-tome-and-principe.jpg",
+    "https://country-fawn.vercel.app/assets/flags/saint-lucia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/russia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/nigeria.jpg",
+    "https://country-fawn.vercel.app/assets/flags/france.jpg",
+    "https://country-fawn.vercel.app/assets/flags/solomon-islands.jpg",
+    "https://country-fawn.vercel.app/assets/flags/mongolia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/argentina.jpg",
+    "https://country-fawn.vercel.app/assets/flags/seychelles.jpg",
+    "https://country-fawn.vercel.app/assets/flags/tanzania.jpg",
+    "https://country-fawn.vercel.app/assets/flags/norway.jpg",
+    "https://country-fawn.vercel.app/assets/flags/united-kingdom.jpg",
+    "https://country-fawn.vercel.app/assets/flags/moldova.jpg",
+    "https://country-fawn.vercel.app/assets/flags/gambia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/israel.jpg",
+    "https://country-fawn.vercel.app/assets/flags/germany.jpg",
+    "https://country-fawn.vercel.app/assets/flags/pakistan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/grenada.jpg",
+    "https://country-fawn.vercel.app/assets/flags/ghana.jpg",
+    "https://country-fawn.vercel.app/assets/flags/cape-verde.jpg",
+    "https://country-fawn.vercel.app/assets/flags/united-arab-emirates.jpg",
+    "https://country-fawn.vercel.app/assets/flags/kyrgyzstan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/tonga.jpg",
+    "https://country-fawn.vercel.app/assets/flags/ukraine.jpg",
+    "https://country-fawn.vercel.app/assets/flags/saudi-arabia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/mozambique.jpg",
+    "https://country-fawn.vercel.app/assets/flags/indonesia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/micronesia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/congo.jpg",
+    "https://country-fawn.vercel.app/assets/flags/italy.jpg",
+    "https://country-fawn.vercel.app/assets/flags/venezuela.jpg",
+    "https://country-fawn.vercel.app/assets/flags/vietnam.jpg",
+    "https://country-fawn.vercel.app/assets/flags/iran.jpg",
+    "https://country-fawn.vercel.app/assets/flags/lithuania.jpg",
+    "https://country-fawn.vercel.app/assets/flags/saint-vincent-grenadines.jpg",
+    "https://country-fawn.vercel.app/assets/flags/uruguay.jpg",
+    "https://country-fawn.vercel.app/assets/flags/romania.jpg",
+    "https://country-fawn.vercel.app/assets/flags/new-zealand.jpg",
+    "https://country-fawn.vercel.app/assets/flags/uganda.jpg",
+    "https://country-fawn.vercel.app/assets/flags/netherlands.jpg",
+    "https://country-fawn.vercel.app/assets/flags/morocco.jpg",
+    "https://country-fawn.vercel.app/assets/flags/zimbabwe.jpg",
+    "https://country-fawn.vercel.app/assets/flags/eritrea.jpg",
+    "https://country-fawn.vercel.app/assets/flags/kuwait.jpg",
+    "https://country-fawn.vercel.app/assets/flags/afghanistan.jpg",
+    "https://country-fawn.vercel.app/assets/flags/suriname.jpg",
+    "https://country-fawn.vercel.app/assets/flags/belarus.jpg",
+    "https://country-fawn.vercel.app/assets/flags/iraq.jpg",
+    "https://country-fawn.vercel.app/assets/flags/mauritania.jpg",
+    "https://country-fawn.vercel.app/assets/flags/el-salvador.jpg",
+    "https://country-fawn.vercel.app/assets/flags/tunisia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/jamaica.jpg",
+    "https://country-fawn.vercel.app/assets/flags/myanmar.jpg",
+    "https://country-fawn.vercel.app/assets/flags/canada.jpg",
+    "https://country-fawn.vercel.app/assets/flags/maldives.jpg",
+    "https://country-fawn.vercel.app/assets/flags/south-africa.jpg",
+    "https://country-fawn.vercel.app/assets/flags/vatican-city.jpg",
+    "https://country-fawn.vercel.app/assets/flags/brazil.jpg",
+    "https://country-fawn.vercel.app/assets/flags/niger.jpg",
+    "https://country-fawn.vercel.app/assets/flags/mexico.jpg",
+    "https://country-fawn.vercel.app/assets/flags/north-korea.jpg",
+    "https://country-fawn.vercel.app/assets/flags/liberia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/saint-kitts-and-nevis.jpg",
+    "https://country-fawn.vercel.app/assets/flags/antigua-and-barbuda.jpg",
+    "https://country-fawn.vercel.app/assets/flags/singapore.jpg",
+    "https://country-fawn.vercel.app/assets/flags/marshall-islands.jpg",
+    "https://country-fawn.vercel.app/assets/flags/andorra.jpg",
+    "https://country-fawn.vercel.app/assets/flags/ethiopia.jpg",
+    "https://country-fawn.vercel.app/assets/flags/dominican-republic.jpg",
+    "https://country-fawn.vercel.app/assets/flags/luxembourg.jpg",
+
+]
 imgsrcs = [
 
     'https://country-fawn.vercel.app/assets/presidents/abdelmadjid-tebboune.jpg',
@@ -191,7 +390,7 @@ imgsrcs = [
     'https://country-fawn.vercel.app/assets/presidents/mahamat-deby.jpg',
     'https://country-fawn.vercel.app/assets/presidents/johnny-briceno.jpg',
     'https://country-fawn.vercel.app/assets/presidents/luis-arce.jpg',
-    'https://country-fawn.vercel.app/assets/presidents/ulf-krisersson.jpg',
+    'https://country-fawn.vercel.app/assets/presidents/ulf-krisetrsson.jpg',
     'https://country-fawn.vercel.app/assets/presidents/joao-lourenco.jpg',
     'https://country-fawn.vercel.app/assets/presidents/bashar-al-assad.jpg',
     'https://country-fawn.vercel.app/assets/presidents/julius-maada-bio.jpg',
@@ -283,7 +482,9 @@ imgsrcs = [
     'https://country-fawn.vercel.app/assets/presidents/luc-frieden.jpg',
 
 ]
-var myCountryName = document.getElementById("country-name");
+
+countryNames = Array.from(document.getElementsByClassName("country-president"))
+var myLeaderName = document.getElementById("country-name");
 var myOutOfScore = document.getElementsByClassName("out-of-score")
 var flagsDone = document.getElementById("flags-done")
 correctFlags = Array.from(document.getElementsByClassName("small-flag"))
@@ -295,7 +496,10 @@ function replaceAndRemoveImage(delIndex) {
     const rndNum = Math.floor(getRandomArbitrary(0, imgsrcs.length));
     imgs[delIndex].src = imgsrcs[rndNum];
 
-    imgs[delIndex].id = imgs[delIndex].src.slice(45, -4).replaceAll("-", " ").toUpperCase();
+    imgs[delIndex].id = countryURLS[rndNum].slice(45, -4).replaceAll("-", " ").toUpperCase();
+    countryNames[delIndex].innerText = imgs[delIndex].id
+
+    imgs[delIndex].id = imgs[delIndex].src.slice(50, -4).replaceAll("-", " ").toUpperCase();
     imgsrcs.splice(rndNum, 1);
 
     return imgs[delIndex]
@@ -312,8 +516,11 @@ window.onload = () => {
     img2 = replaceAndRemoveImage(2);
     img3 = replaceAndRemoveImage(3);
     chosenImg = randomizer(img0, img1, img2, img3)
-    myCountryName.innerText = chosenImg.id
+    myLeaderName.innerText = chosenImg.id
     myOutOfScore.innerText = output.innerHTML
+
+
+
 
 };
 
@@ -338,7 +545,7 @@ function removeImageListener(event) {
 
 
 
-    if (myCountryName.innerText == imgId) {
+    if (myLeaderName.innerText == imgId) {
         //pass
 
 
@@ -387,7 +594,10 @@ function removeImageListener(event) {
         id_delIndex3 = replaceAndRemoveImage(delIndexes[2]);
 
         chosenImg = randomizer(id_i, id_delIndex1, id_delIndex2, id_delIndex3)
-        myCountryName.innerText = chosenImg.id;
+        myLeaderName.innerText = chosenImg.id;
+
+
+
 
 
         counter++;
