@@ -240,7 +240,7 @@ imgsrcs = [
     "https://country-fawn.vercel.app/assets/flags/netherlands.jpg",
     "https://country-fawn.vercel.app/assets/flags/jamaica.jpg",
     "https://country-fawn.vercel.app/assets/flags/zambia.jpg",
-    "https://country-fawn.vercel.app/assets/flags/cote-d'Ivoire.jpg",
+    "https://country-fawn.vercel.app/assets/flags/cote-d'ivoire.jpg",
     "https://country-fawn.vercel.app/assets/flags/barbados.jpg",
     "https://country-fawn.vercel.app/assets/flags/norway.jpg",
     "https://country-fawn.vercel.app/assets/flags/burkina-faso.jpg",
