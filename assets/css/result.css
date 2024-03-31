@@ -168,6 +168,27 @@ p {
     border: none;
 }
 
+
+.stats-btn__again3 {    
+    margin: auto;
+    
+    color: var(--text-white, #FFF);
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 36px;
+    border-radius: 6px;
+    background: #3966D1;
+    border: none;
+}
+
 button {
     cursor: pointer;
     text-transform: none;
