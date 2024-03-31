@@ -105,7 +105,7 @@ imgsrcs = [
     "https://country-fawn.vercel.app/assets/maps/albania.jpg",
     "https://country-fawn.vercel.app/assets/maps/denmark.jpg",
     "https://country-fawn.vercel.app/assets/maps/cuba.jpg",
-    "https://country-fawn.vercel.app/assets/maps/Dominica.jpg",
+    "https://country-fawn.vercel.app/assets/maps/dominica.jpg",
     "https://country-fawn.vercel.app/assets/maps/india.jpg",
     "https://country-fawn.vercel.app/assets/maps/sweden.jpg",
     "https://country-fawn.vercel.app/assets/maps/yemen.jpg",
