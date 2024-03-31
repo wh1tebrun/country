@@ -279,7 +279,7 @@ imgsrcs = [
     "https://country-fawn.vercel.app/assets/maps/austria.jpg",
     "https://country-fawn.vercel.app/assets/maps/andorra.jpg",
     "https://country-fawn.vercel.app/assets/maps/sri-lanka.jpg",
-    "https://country-fawn.vercel.app/assets/maps/guniea.jpg"
+    "https://country-fawn.vercel.app/assets/maps/guinea.jpg"
 
 ]
 var myCountryName = document.getElementById("country-name");
