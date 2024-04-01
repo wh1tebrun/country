@@ -498,7 +498,7 @@ function replaceAndRemoveImage(delIndex) {
     imgs[delIndex].id = countryURLS[rndNum].slice(45, -4).replaceAll("-", " ").toUpperCase();
     countryNames[delIndex].innerText = imgs[delIndex].id
 
-    imgs[delIndex].id = imgs[delIndex].src.slice(50, -4).replaceAll("-", " ").toUpperCase();
+    imgs[delIndex].id = imgs[delIndex].src.slice(54, -4).replaceAll("-", " ").toUpperCase();
     imgsrcs.splice(rndNum, 1);
 
     return imgs[delIndex]
