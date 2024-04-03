@@ -493,16 +493,22 @@ playAgainButtons = Array.from(document.getElementsByClassName("stats-btn__again2
 // Function to replace the image source of the image at delIndex with a random image from imgsrcs
 // and then remove the used image source from imgsrcs
 function replaceAndRemoveImage(delIndex) {
-    const rndNum = Math.floor(getRandomArbitrary(0, imgsrcs.length));
-    imgs[delIndex].src = imgsrcs[100];
+    function findNameFromPath(path) {
+        const nameStartIndex = path.lastIndexOf("/") + 1;
+        const extensionStartIndex = nameStartIndex + path.slice(nameStartIndex).lastIndexOf(".");
 
-    imgs[delIndex].id = countryURLS[100].slice(45, -4).replaceAll("-", " ").toUpperCase();
+        return path.slice(nameStartIndex, extensionStartIndex).replaceAll("-", " ").toUpperCase();
+    }
+
+    const rndNum = Math.floor(getRandomArbitrary(0, imgsrcs.length));
+    imgs[delIndex].src = imgsrcs[rndNum];
+
+    imgs[delIndex].id = findNameFromPath(countryURLS[rndNum]);
     countryNames[delIndex].innerText = imgs[delIndex].id
 
-    imgs[delIndex].id = imgs[delIndex].src.slice(50, -4).replaceAll("-", " ").toUpperCase();
-    imgsrcs.splice(rndNum, 1);
+    imgs[delIndex].id = findNameFromPath(imgs[delIndex].src);
 
-    return imgs[delIndex]
+    return imgs[delIndex];
 
 
 }
