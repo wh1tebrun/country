@@ -285,6 +285,8 @@ imgsrcs = [
 var myCountryName = document.getElementById("country-name");
 var myOutOfScore = document.getElementsByClassName("out-of-score")
 var flagsDone = document.getElementById("flags-done")
+var flagsDone2 = document.getElementById("flags-done2")
+var valueOfRound = document.getElementById("value-of-round")
 correctFlags = Array.from(document.getElementsByClassName("small-flag"))
 playAgainButtons = Array.from(document.getElementsByClassName("stats-btn__again2"))
 
@@ -365,6 +367,8 @@ function removeImageListener(event) {
 
 
     if (counter >= parseInt(output.innerHTML, 10) - 1) {
+        counter++;
+        flagsDone2.innerText = counter
 
         localStorage.setItem('mostRecentScore', timePassed);
         img.removeEventListener("click", removeImageListener);
@@ -390,6 +394,7 @@ function removeImageListener(event) {
 
 
         counter++;
+        flagsDone2.innerText = counter
     }
 
     if (counter >= 1) {
@@ -414,10 +419,12 @@ imgs.forEach((img, i) => {
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value; // Display the default slider value
+valueOfRound.innerHTML = slider.value;
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function () {
     output.innerHTML = this.value;
+    valueOfRound.innerHTML = slider.value;
 
 
 }
