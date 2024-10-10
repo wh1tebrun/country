@@ -1,4 +1,3 @@
-
 counter = 0
 mistake = 0
 
@@ -428,6 +427,3 @@ slider.oninput = function () {
 
 
 }
-
-
-
