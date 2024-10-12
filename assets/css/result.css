@@ -244,6 +244,25 @@ button {
         padding: 30px;
         position: absolute;
     }
+    .stats-btn__again3 {    
+        margin: auto;
+        
+        color: var(--text-white, #FFF);
+        text-align: center;
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25%;
+        height: 50px;
+        border-radius: 6px;
+        background: #3966D1;
+        border: none;
+    }
 }
 
 @media (min-width:1001px) {
@@ -255,6 +274,25 @@ button {
         border-radius: 15px;
         padding: 30px;
         position: absolute;
+    }
+    .stats-btn__again3 {    
+        margin: auto;
+        
+        color: var(--text-white, #FFF);
+        text-align: center;
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25%;
+        height: 50px;
+        border-radius: 6px;
+        background: #3966D1;
+        border: none;
     }
 
 }

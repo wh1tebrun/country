@@ -6,38 +6,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <!-- Title -->
-  <title>Quick Quiz</title>
+  <title>Country-Flag Game</title>
   <!-- Custom Styles -->
   <link rel="stylesheet" href="assets/css/app.css" />
   <!-- Favicon -->
   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-  <title>Country-Flag Game</title>
   <link rel="icon" type="image/jpg" href="world.png" />
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <!-- Fill content with the URL of this portfolio you'll host -->
   <meta property="og:url" content="https://country-fawn.vercel.app/" />
-  <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
   <meta property="og:title" content="Ege Tekin | flag-project" />
-  <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
   <meta property="og:description"
     content="A simple and fun website that you can use to practise your knowledge in country flags." />
-  <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
-      so that a thumbnail image of your portfolio is shown while shared on other platform -->
   <meta property="og:image" content="world.png" />
+
+  <!-- Inline Styles for Dropdown (You can move these to your CSS file) -->
+  <style>
+    /* Container for the dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    /* Dropdown button */
+    .dropbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Dropdown items */
+    .dropdown-content button {
+      background-color: #f9f9f9;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Change background on hover */
+    .dropdown-content button:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Show the dropdown when the button is clicked */
+    .show {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
+
   <main class="container">
     <div id="home" class="flex-center flex-column">
       <h1 style="text-align: center;">Country Quiz</h1>
+
+      <!-- Dropdown for Selecting Continent -->
+      <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropbtn" id="selectContinentBtn">Select Continent</button>
+        <div id="continentDropdown" class="dropdown-content">
+          <button onclick="selectContinent('All')">All</button>
+          <button onclick="selectContinent('Africa')">Africa</button>
+          <button onclick="selectContinent('Asia')">Asia</button>
+          <button onclick="selectContinent('Europe')">Europe</button>
+          <button onclick="selectContinent('North America')">North America</button>
+          <button onclick="selectContinent('South America')">South America</button>
+          <button onclick="selectContinent('Oceania')">Oceania</button>
+        </div>
+      </div>
+
+      <!-- Quiz Mode Buttons -->
       <a class="btn" href="assets/html/flag.html">Flag</a>
       <a class="btn" href="assets/html/map.html">Map</a>
       <a class="btn" href="assets/html/capital-city.html">Capital City</a>
       <a class="btn" href="assets/html/leader.html">Leader</a>
+
+      <!-- Display Selected Continent (Optional) -->
+      <p id="selectedContinentDisplay" style="margin-top: 20px; font-size: 18px;"></p>
     </div>
-
-
   </main>
 
   <footer class="footer">
@@ -45,11 +114,46 @@
       <p class="footer__text">
         &copy; <span id="year"></span> - Created By
         <a href="https://github.com/wh1tebrun" target="_blank" rel="noopener noreferrer"> Ege Tekin</a>
-
-
       </p>
     </div>
   </footer>
+
+  <!-- JavaScript for Dropdown Functionality -->
+  <script>
+    let selectedContinent = null;
+
+    // Toggle the visibility of the dropdown menu
+    function toggleDropdown() {
+      document.getElementById("continentDropdown").classList.toggle("show");
+    }
+
+    // Function to handle continent selection
+    function selectContinent(continent) {
+      selectedContinent = continent;
+      document.getElementById("selectContinentBtn").innerText = continent;
+      document.getElementById("selectedContinentDisplay").innerText = `Selected Continent: ${continent}`;
+      // Close the dropdown
+      document.getElementById("continentDropdown").classList.remove("show");
+      // You can add additional logic here to filter quizzes based on selectedContinent
+      localStorage.setItem("selectedContinent", continent);
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
