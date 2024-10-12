@@ -502,6 +502,7 @@ else if (currentContinent == "South America") {
     countryURLS = countryURLSouthAmerica
 }
 else if (currentContinent == "All") {
+    imgsrcs = ((((imgsrcsAfrica.concat(imgsrcsAsia)).concat(imgsrcsEurope)).concat(imgsrcsNorthAmerica)).concat(imgsrcsOcenia)).concat(imgsrcsSouthAmerica)
     countryURLS = ((((countryURLAfrica.concat(countryURLAsia)).concat(countryURLEurope)).concat(countryURLNorthAmerica)).concat(countryURLOcenia)).concat(countryURLSouthAmerica)
 }
 
