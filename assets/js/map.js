@@ -314,114 +314,91 @@ playAgainButtons = Array.from(document.getElementsByClassName("stats-btn__again2
 
 // Function to replace the image source of the image at delIndex with a random image from imgsrcs
 // and then remove the used image source from imgsrcs
-function replaceAndRemoveImage(delIndex) {
-    const rndNum = Math.floor(getRandomArbitrary(0, imgsrcs.length));
-    imgs[delIndex].src = imgsrcs[rndNum];
-
-    imgs[delIndex].id = imgs[delIndex].src.slice(44, -4).replaceAll("-", " ").toUpperCase();
-    imgsrcs.splice(rndNum, 1);
-
-    return imgs[delIndex]
-
-
+function replaceAndRemoveImage(delIndex, imgsrcsCopy) {
+    const rndNum = Math.floor(getRandomArbitrary(0, imgsrcsCopy.length));
+    imgs[delIndex].src = imgsrcsCopy[rndNum];
+    imgs[delIndex].id = imgs[delIndex].src.slice(45, -4).replaceAll("-", " ").toUpperCase();
+    imgsrcsCopy.splice(rndNum, 1); // Remove the used image source
+    return imgs[delIndex];
 }
 
-// When the window loads, replace the first two images
+// When the window loads, replace the images with unique flags
 window.onload = () => {
-    closeResult()
-    console.log(correctFlags[0].src)
-    img0 = replaceAndRemoveImage(0);
-    img1 = replaceAndRemoveImage(1);
-    img2 = replaceAndRemoveImage(2);
-    img3 = replaceAndRemoveImage(3);
-    chosenImg = randomizer(img0, img1, img2, img3)
-    myCountryName.innerText = chosenImg.id
-    myOutOfScore.innerText = output.innerHTML
-
+    closeResult();
+    console.log(correctFlags[0].src);
+    setupNewRound();
+    myOutOfScore.innerText = output.innerHTML;
 };
+function setupNewRound() {
+    // Create a copy of imgsrcs for this round
+    let imgsrcsCopy = imgsrcs.slice();
+
+    // Replace images with unique flags
+    id0 = replaceAndRemoveImage(0, imgsrcsCopy);
+    id1 = replaceAndRemoveImage(1, imgsrcsCopy);
+    id2 = replaceAndRemoveImage(2, imgsrcsCopy);
+    id3 = replaceAndRemoveImage(3, imgsrcsCopy);
+
+    // Choose one of the images as the chosenImg
+    chosenImg = randomizer(id0, id1, id2, id3);
+    myCountryName.innerText = chosenImg.id;
+}
 
 
 const flagPressed = e => {
     const id = e.target.id;  // Get ID of Clicked Element
     return id
 }
-// Event listener function for removing an image
 function removeImageListener(event) {
-
     if (mistake !== 0) {
-        return
+        return;
     }
 
     const img = event.target;
     const imgId = img.getAttribute("id");
-    const imgSrc = img.getAttribute("src")
     const i = img._index;
-    const delIndexesSet = new Set([0, 1, 2, 3]).symmetricDifference(new Set([i]))
-    const delIndexes = Array.from(delIndexesSet)
-
-
 
     if (myCountryName.innerText == imgId) {
-        //pass
+        // Correct flag clicked
 
-
-    }
-
-    else {
-        correctFlags[0].src = chosenImg.src
-        correctFlags[0].id = chosenImg.id
-
-        console.log(correctFlags[0].src)
-
-        openResult()
-        mistake++
-
-
-
-
-    }
-
-    if (mistake !== 0) {
-        document.getElementById("myRange").disabled = true;
-        flagsDone.innerText = counter
-        return
-    }
-
-
-    if (counter >= parseInt(output.innerHTML, 10) - 1) {
-
-        localStorage.setItem('mostRecentScore', timePassed);
-        img.removeEventListener("click", removeImageListener);
-        imgs[delIndexes[0]].style.visibility = "hidden";
-        imgs[delIndexes[1]].style.visibility = "hidden";
-        imgs[delIndexes[2]].style.visibility = "hidden";
-        jsConfetti.addConfetti({
-            emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
-        }).then(() => jsConfetti.addConfetti());
-
-        playAgainButtons[0].style.visibility = 'visible';
-
-    }
-
-    else {
-        id_i = replaceAndRemoveImage(i);
-        id_delIndex1 = replaceAndRemoveImage(delIndexes[0]);
-        id_delIndex2 = replaceAndRemoveImage(delIndexes[1]);
-        id_delIndex3 = replaceAndRemoveImage(delIndexes[2]);
-
-        chosenImg = randomizer(id_i, id_delIndex1, id_delIndex2, id_delIndex3)
-        myCountryName.innerText = chosenImg.id;
-
-
+        // Increment the counter
         counter++;
-    }
+        flagsDone2.innerText = counter;
 
-    if (counter >= 1) {
+        if (counter >= parseInt(output.innerHTML, 10)) {
+            // Game over - player has won
+            localStorage.setItem('mostRecentScore', totalSeconds);
+            imgs.forEach((img) => {
+                img.style.visibility = "hidden";
+            });
+
+            jsConfetti.addConfetti({
+                emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
+            }).then(() => jsConfetti.addConfetti());
+
+            playAgainButtons[0].style.visibility = 'visible';
+        } else {
+            // Proceed to the next round
+            setupNewRound();
+        }
+
+        if (counter >= 1) {
+            document.getElementById("myRange").disabled = true;
+        }
+    } else {
+        // Wrong flag clicked
+        correctFlags[0].src = chosenImg.src;
+        correctFlags[0].id = chosenImg.id;
+
+        console.log(correctFlags[0].src);
+
+        openResult();
+        mistake++;
+
         document.getElementById("myRange").disabled = true;
+        flagsDone.innerText = counter;
+        return;
     }
-
-
-
 }
 
 // Adding the event listener to each image

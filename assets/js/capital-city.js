@@ -521,7 +521,7 @@ function replaceAndRemoveImage(delIndex) {
     imgs[delIndex].src = imgsrcs[rndNum];
 
     imgs[delIndex].id = imgs[delIndex].src.slice(45, -4).replaceAll("-", " ").toUpperCase();
-    imgsrcs.splice(rndNum, 1);
+    // imgsrcs.splice(rndNum, 1);
 
     return imgs[delIndex]
 
